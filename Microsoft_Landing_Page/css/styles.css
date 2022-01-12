@@ -336,8 +336,25 @@ footer p {
 	font-size: 16px;
 }
 
+/* Burger Menu Button */
+.burger-btn {
+	display: none;
+	cursor: pointer;
+}
+
+.bar {
+	display: block;
+	width: 25px;
+	height: 2px;
+	background: black;
+}
+
+.bar + .bar {
+	margin-top: 5px;
+}
+
 /* Smaller Screens */
-@media(max-width: 700px) {
+@media(max-width: 900px) {
 	.card-section {
 		grid-template-columns: repeat(2, 1fr);
 	}
@@ -348,6 +365,7 @@ footer p {
 
 	.icon-section {
 		grid-template-columns: repeat(3, 1fr);
+		
 	}
 
 	.content-div {
@@ -361,6 +379,49 @@ footer p {
 	.content-div h2 {
 		margin-bottom: 40px;
 	}
+
+	/* Burger Menu */
+	.burger-btn {
+		display: block;
+	}
+
+	.nav-inner-left {
+		position: absolute;
+		flex-direction: column;
+		left: -100%;
+		top: 60px;
+		width: 100%;
+		background-color: rgb(242, 242, 242);
+		font-size: 1rem;
+	}
+
+	.nav-inner-left li {
+		padding: 0;
+		width: 100%;
+		border-bottom: 1px solid rgb(230, 230, 230);
+	}
+
+	.nav-inner-left li:last-child {
+		border-bottom: 1px solid black;
+	}
+
+	.nav-inner-left a {
+		display: block;
+		line-height: 50px;
+		padding: 0 30px;
+	}
+
+	.nav-inner-left a:hover {
+		border-bottom: 0;
+	}
+
+	.nav-inner-left.active {
+		left: 0;
+	}
+
+	.burger-btn.active .bar:nth-child(2) { display: none; }
+	.burger-btn.active .bar:nth-child(1) { transform: translateY(3.5px) rotate(-45deg); }
+	.burger-btn.active .bar:nth-child(3) { transform: translateY(-3.5px) rotate(45deg) }
 }
 
 @media(max-width: 500px) {
